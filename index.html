@@ -3049,7 +3049,20 @@
 
             .cursor-dot, .cursor-ring, .trail-image { display: none !important; }
             .gallery-film-border { display: none; }
-            .gallery-panel { width: 85vw; height: 50vh; min-height: 300px; }
+            .gallery-panel {
+                width: 85vw;
+                height: 50vh;
+                min-height: 300px;
+                perspective: none;
+                transform-style: flat;
+            }
+            .gallery-panel img {
+                filter: none !important;
+                will-change: transform;
+            }
+            .gallery-gsap-track {
+                will-change: transform;
+            }
             .gallery-counter { right: 24px; bottom: 16px; }
 
             .hero { min-height: 100vh; min-height: 100svh; }
@@ -4613,6 +4626,7 @@
             if (galleryTrack && galleryWrapper) {
                 const panels = gsap.utils.toArray('.gallery-panel');
                 const totalPanels = panels.length;
+                const isMobile = window.innerWidth <= 768;
 
                 const galleryTween = gsap.to(galleryTrack, {
                     x: () => -(galleryTrack.scrollWidth - window.innerWidth),
@@ -4620,8 +4634,8 @@
                     scrollTrigger: {
                         trigger: galleryWrapper,
                         pin: true,
-                        scrub: 1,
-                        end: () => '+=' + (galleryTrack.scrollWidth - window.innerWidth),
+                        scrub: isMobile ? 0.3 : 1,
+                        end: () => '+=' + (galleryTrack.scrollWidth - window.innerWidth) * (isMobile ? 0.7 : 1),
                         invalidateOnRefresh: true,
                         onUpdate: (self) => {
                             if (galleryCounter) {
@@ -4632,35 +4646,45 @@
                     }
                 });
 
-                // Polaroid reveal as panels enter viewport
-                panels.forEach((panel, i) => {
-                    gsap.fromTo(panel, {
-                        opacity: 0.3,
-                        scale: 0.92
-                    }, {
-                        opacity: 1,
-                        scale: 1,
-                        duration: 1,
-                        scrollTrigger: {
-                            trigger: panel,
-                            containerAnimation: galleryTween,
-                            start: 'left 90%',
-                            end: 'left 50%',
-                            scrub: true
-                        }
+                // Polaroid reveal — only on desktop (too heavy on mobile scroll)
+                if (!isMobile) {
+                    panels.forEach((panel, i) => {
+                        gsap.fromTo(panel, {
+                            opacity: 0.3,
+                            scale: 0.92
+                        }, {
+                            opacity: 1,
+                            scale: 1,
+                            duration: 1,
+                            scrollTrigger: {
+                                trigger: panel,
+                                containerAnimation: galleryTween,
+                                start: 'left 90%',
+                                end: 'left 50%',
+                                scrub: true
+                            }
+                        });
                     });
-                });
+                }
             }
 
-            // --- GSAP Section Reveal Animations (dramatic) ---
+            const isMobileDevice = window.innerWidth <= 768;
+
+            // --- GSAP Section Reveal Animations (lighter on mobile) ---
             gsap.utils.toArray('.section-header').forEach(header => {
                 const tag = header.querySelector('.section-tag');
                 const title = header.querySelector('.section-title');
                 const line = header.querySelector('.section-line');
 
-                if (tag) gsap.set(tag, { y: 30, opacity: 0, filter: 'blur(4px)' });
-                if (title) gsap.set(title, { y: 60, opacity: 0, filter: 'blur(6px)' });
-                if (line) gsap.set(line, { scaleX: 0, transformOrigin: 'center' });
+                if (isMobileDevice) {
+                    if (tag) gsap.set(tag, { y: 20, opacity: 0 });
+                    if (title) gsap.set(title, { y: 30, opacity: 0 });
+                    if (line) gsap.set(line, { scaleX: 0, transformOrigin: 'center' });
+                } else {
+                    if (tag) gsap.set(tag, { y: 30, opacity: 0, filter: 'blur(4px)' });
+                    if (title) gsap.set(title, { y: 60, opacity: 0, filter: 'blur(6px)' });
+                    if (line) gsap.set(line, { scaleX: 0, transformOrigin: 'center' });
+                }
 
                 ScrollTrigger.create({
                     trigger: header,
@@ -4668,36 +4692,48 @@
                     once: true,
                     onEnter: () => {
                         const tl = gsap.timeline();
-                        if (tag) tl.to(tag, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' });
-                        if (title) tl.to(title, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 1, ease: 'power3.out' }, '-=0.4');
-                        if (line) tl.to(line, { scaleX: 1, duration: 0.8, ease: 'power2.inOut' }, '-=0.5');
+                        if (isMobileDevice) {
+                            if (tag) tl.to(tag, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' });
+                            if (title) tl.to(title, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.3');
+                            if (line) tl.to(line, { scaleX: 1, duration: 0.5, ease: 'power2.inOut' }, '-=0.3');
+                        } else {
+                            if (tag) tl.to(tag, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' });
+                            if (title) tl.to(title, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 1, ease: 'power3.out' }, '-=0.4');
+                            if (line) tl.to(line, { scaleX: 1, duration: 0.8, ease: 'power2.inOut' }, '-=0.5');
+                        }
                     }
                 });
             });
 
-            // --- GSAP Staggered Card Reveals (dramatic) ---
+            // --- GSAP Staggered Card Reveals (dramatic, lighter on mobile) ---
             const cardGrids = ['.benefits-grid', '.services-grid', '.courses-shop-grid', '.process-grid', '.packages-grid', '.faq-list'];
             cardGrids.forEach(selector => {
                 const grid = document.querySelector(selector);
                 if (!grid) return;
                 const cards = gsap.utils.toArray(grid.children);
-                gsap.set(cards, { opacity: 0, y: 80, scale: 0.9, filter: 'blur(8px)' });
+                if (isMobileDevice) {
+                    gsap.set(cards, { opacity: 0, y: 40 });
+                } else {
+                    gsap.set(cards, { opacity: 0, y: 80, scale: 0.9, filter: 'blur(8px)' });
+                }
                 ScrollTrigger.create({
                     trigger: grid,
                     start: 'top 90%',
                     once: true,
                     onEnter: () => {
-                        console.log('[GP] Animating grid:', selector);
-                        gsap.to(cards, {
-                            opacity: 1,
-                            y: 0,
-                            scale: 1,
-                            filter: 'blur(0px)',
-                            duration: 0.9,
-                            stagger: 0.15,
-                            ease: 'power3.out',
-                            clearProps: 'filter,transform'
-                        });
+                        if (isMobileDevice) {
+                            gsap.to(cards, {
+                                opacity: 1, y: 0,
+                                duration: 0.6, stagger: 0.1, ease: 'power2.out',
+                                clearProps: 'transform'
+                            });
+                        } else {
+                            gsap.to(cards, {
+                                opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
+                                duration: 0.9, stagger: 0.15, ease: 'power3.out',
+                                clearProps: 'filter,transform'
+                            });
+                        }
                     }
                 });
             });
