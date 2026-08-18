@@ -3653,7 +3653,7 @@
             </div>
             <div class="courses-shop-grid">
                 <div class="course-card tilt-card gradient-border">
-                    <div class="course-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://georgepantelimon.ro/wp-content/uploads/2025/10/Imagen-de-WhatsApp-2025-10-07-a-las-18.29.26_889f6bc8-1.jpg'); background-position: center 20%;">
+                    <div class="course-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://georgepantelimon.ro/wp-content/uploads/2025/10/Imagen-de-WhatsApp-2025-10-07-a-las-18.29.26_889f6bc8-1.jpg'); background-position: center top;">
                         <div class="course-thumb-inner">
                             <span class="course-play">&#9654;</span>
                         </div>
@@ -3670,7 +3670,7 @@
                     </div>
                 </div>
                 <div class="course-card tilt-card gradient-border">
-                    <div class="course-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('https://georgepantelimon.ro/wp-content/uploads/2025/10/Imagen-de-WhatsApp-2025-10-07-a-las-18.29.26_889f6bc8-1.jpg'); background-position: center 40%;">
+                    <div class="course-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('https://georgepantelimon.ro/wp-content/uploads/2025/10/Imagen-de-WhatsApp-2025-10-07-a-las-18.29.26_889f6bc8-1.jpg'); background-position: center top;">
                         <div class="course-thumb-inner">
                             <span class="course-play">&#9654;</span>
                         </div>
@@ -3687,7 +3687,7 @@
                     </div>
                 </div>
                 <div class="course-card tilt-card gradient-border">
-                    <div class="course-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.55)), url('https://georgepantelimon.ro/wp-content/uploads/2025/10/Imagen-de-WhatsApp-2025-10-07-a-las-18.29.26_889f6bc8-1.jpg'); background-position: center 60%;">
+                    <div class="course-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.55)), url('https://georgepantelimon.ro/wp-content/uploads/2025/10/Imagen-de-WhatsApp-2025-10-07-a-las-18.29.26_889f6bc8-1.jpg'); background-position: center top;">
                         <div class="course-thumb-inner">
                             <span class="course-play">&#9654;</span>
                         </div>
@@ -4682,15 +4682,9 @@
                 const title = header.querySelector('.section-title');
                 const line = header.querySelector('.section-line');
 
-                if (isMobileDevice) {
-                    if (tag) gsap.set(tag, { y: 20, opacity: 0 });
-                    if (title) gsap.set(title, { y: 30, opacity: 0 });
-                    if (line) gsap.set(line, { scaleX: 0, transformOrigin: 'center' });
-                } else {
-                    if (tag) gsap.set(tag, { y: 30, opacity: 0, filter: 'blur(4px)' });
-                    if (title) gsap.set(title, { y: 60, opacity: 0, filter: 'blur(6px)' });
-                    if (line) gsap.set(line, { scaleX: 0, transformOrigin: 'center' });
-                }
+                if (tag) gsap.set(tag, { y: 30, opacity: 0, filter: 'blur(4px)' });
+                if (title) gsap.set(title, { y: isMobileDevice ? 30 : 60, opacity: 0, filter: isMobileDevice ? 'blur(3px)' : 'blur(6px)' });
+                if (line) gsap.set(line, { scaleX: 0, transformOrigin: 'center' });
 
                 ScrollTrigger.create({
                     trigger: header,
@@ -4698,15 +4692,9 @@
                     once: true,
                     onEnter: () => {
                         const tl = gsap.timeline();
-                        if (isMobileDevice) {
-                            if (tag) tl.to(tag, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' });
-                            if (title) tl.to(title, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.3');
-                            if (line) tl.to(line, { scaleX: 1, duration: 0.5, ease: 'power2.inOut' }, '-=0.3');
-                        } else {
-                            if (tag) tl.to(tag, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' });
-                            if (title) tl.to(title, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 1, ease: 'power3.out' }, '-=0.4');
-                            if (line) tl.to(line, { scaleX: 1, duration: 0.8, ease: 'power2.inOut' }, '-=0.5');
-                        }
+                        if (tag) tl.to(tag, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.6, ease: 'power3.out' });
+                        if (title) tl.to(title, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.8, ease: 'power3.out' }, '-=0.3');
+                        if (line) tl.to(line, { scaleX: 1, duration: 0.6, ease: 'power2.inOut' }, '-=0.4');
                     }
                 });
             });
@@ -4718,7 +4706,7 @@
                 if (!grid) return;
                 const cards = gsap.utils.toArray(grid.children);
                 if (isMobileDevice) {
-                    gsap.set(cards, { opacity: 0, y: 40 });
+                    gsap.set(cards, { opacity: 0, y: 50, filter: 'blur(4px)' });
                 } else {
                     gsap.set(cards, { opacity: 0, y: 80, scale: 0.9, filter: 'blur(8px)' });
                 }
@@ -4729,9 +4717,9 @@
                     onEnter: () => {
                         if (isMobileDevice) {
                             gsap.to(cards, {
-                                opacity: 1, y: 0,
+                                opacity: 1, y: 0, filter: 'blur(0px)',
                                 duration: 0.6, stagger: 0.1, ease: 'power2.out',
-                                clearProps: 'transform'
+                                clearProps: 'filter,transform'
                             });
                         } else {
                             gsap.to(cards, {
