@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>George Pantelimon | Fotograf Profesionist Ploiești</title>
+    <meta name="description" content="Fotograf profesionist din Ploiești, Prahova. Servicii foto & video pentru nunți, botezuri, majorat și albume foto premium.">
+    <meta name="keywords" content="fotograf ploiesti, fotograf nunta, fotograf botez, fotograf majorat, editare video, albume foto">
+    <meta property="og:title" content="George Pantelimon | Fotograf Profesionist Ploiești">
+    <meta property="og:description" content="Servicii foto & video premium pentru cele mai importante momente din viața ta.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://georgepantelimon.ro">
+    <link rel="canonical" href="https://georgepantelimon.ro">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Questrial&display=swap" rel="stylesheet">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "George Pantelimon - Fotograf",
+        "description": "Fotograf profesionist din Ploiești. Servicii foto și video pentru nunți, botezuri, majorat, albume.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ploiești",
+            "addressRegion": "Prahova",
+            "addressCountry": "RO"
+        },
+        "image": "https://georgepantelimon.ro/wp-content/uploads/2026/03/cropped-black.png",
+        "priceRange": "$$"
+    }
+    </script>
+
+    <style>
+        /* ==================== RESET & BASE ==================== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --black: #0a0a0a;
+            --dark: #1a1a1a;
+            --gray-dark: #2a2a2a;
+            --gray: #4B4F58;
+            --gray-light: #8a8a8a;
+            --gray-lighter: #c4c4c4;
+            --off-white: #F2F5F7;
+            --white: #ffffff;
+            --accent: #b37e6b;
+            --accent-dark: #a76d58;
+            --accent-light: #c99a89;
+            --gold: #d4a574;
+            --overlay: rgba(0,0,0,0.6);
+            --font-heading: 'Montserrat', sans-serif;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Questrial', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow: 0 20px 60px rgba(0,0,0,0.15);
+            --shadow-lg: 0 40px 80px rgba(0,0,0,0.25);
+        }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--gray);
+            background: var(--white);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; height: auto; display: block; }
+        ul { list-style: none; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ==================== PRELOADER ==================== */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: var(--black);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s, visibility 0.8s;
+        }
+
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--gray-dark);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ==================== CUSTOM CURSOR ==================== */
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99998;
+            transition: transform 0.15s;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-ring {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99997;
+            transition: transform 0.3s, width 0.3s, height 0.3s;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor-ring.hover {
+            width: 60px;
+            height: 60px;
+            border-color: var(--accent-light);
+            background: rgba(179, 126, 107, 0.1);
+        }
+
+        /* ==================== PARTICLES ==================== */
+        #particles-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        /* ==================== NAVBAR ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 12px 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo img {
+            height: 45px;
+            width: auto;
+            filter: invert(1);
+            transition: var(--transition);
+        }
+
+        .nav-logo span {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--white);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.4s;
+        }
+
+        .nav-menu a:hover::after { width: 100%; }
+
+        .nav-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .nav-social a {
+            color: var(--white);
+            font-size: 1.1rem;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .nav-social a:hover { opacity: 1; color: var(--accent); }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: var(--white);
+            transition: var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: var(--black);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            transform: translateX(100%);
+            transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .mobile-menu.active { transform: translateX(0); }
+
+        .mobile-menu a {
+            color: var(--white);
+            font-family: var(--font-display);
+            font-size: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s;
+        }
+
+        .mobile-menu.active a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu a:hover { color: var(--accent); }
+
+        /* ==================== HERO ==================== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--black);
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://georgepantelimon.ro/wp-content/uploads/2025/10/Imagen-de-WhatsApp-2025-10-07-a-las-18.29.26_889f6bc8-1.jpg') center/cover no-repeat;
+            transform: scale(1.1);
+            animation: heroZoom 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroZoom {
+            0% { transform: scale(1.1); }
+            100% { transform: scale(1.2); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(0,0,0,0.7) 0%,
+                rgba(0,0,0,0.4) 50%,
+                rgba(0,0,0,0.7) 100%
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--white);
+            max-width: 900px;
+            padding: 0 24px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 24px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 32px;
+            opacity: 0;
+            animation: fadeInUp 1s 0.5s forwards;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeInUp 1s 0.8s forwards;
+        }
+
+        .hero h1 em {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--gray-lighter);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeInUp 1s 1.1s forwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 1s 1.4s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 0;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(179, 126, 107, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+
+        .btn-dark {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .btn-dark:hover {
+            background: var(--gray-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Hero scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--white);
+            opacity: 0.6;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-family: var(--font-heading);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--white), transparent);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* ==================== MARQUEE ==================== */
+        .marquee-section {
+            background: var(--black);
+            padding: 20px 0;
+            overflow: hidden;
+            border-top: 1px solid var(--gray-dark);
+            border-bottom: 1px solid var(--gray-dark);
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee-track:hover { animation-play-state: paused; }
+
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 0 48px;
+            white-space: nowrap;
+        }
+
+        .marquee-item span {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--gray-light);
+            font-weight: 400;
+        }
+
+        .marquee-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* ==================== SECTION STYLES ==================== */
+        .section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-dark {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .section-gray {
+            background: var(--off-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-tag {
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .section-dark .section-title { color: var(--white); }
+
+        .section-line {
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            margin: 0 auto;
+        }
+
+        /* ==================== ABOUT ==================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: var(--transition);
+        }
+
+        .about-image:hover img { filter: grayscale(0); }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent);
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .about-image:hover::before {
+            top: -10px;
+            left: -10px;
+        }
+
+        .about-text h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 24px;
+            color: var(--black);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid var(--gray-lighter);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--accent);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray-light);
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ==================== SERVICES ==================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--gray-dark);
+            padding: 48px 36px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(179, 126, 107, 0.15);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .service-card p {
+            color: var(--gray-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .service-card .card-link {
+            color: var(--accent);
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-card .card-link::after {
+            content: '\2192';
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover .card-link::after { transform: translateX(5px); }
+
+        .service-number {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            font-family: var(--font-display);
+            font-size: 4rem;
+            color: rgba(255,255,255,0.03);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        /* ==================== PORTFOLIO / GALLERY ==================== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-row: span 2;
+            aspect-ratio: auto;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+        }
+
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        .gallery-overlay span {
+            color: var(--white);
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* ==================== PROCESS / WORKFLOW ==================== */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            position: relative;
+        }
+
+        .process-grid::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 12.5%;
+            right: 12.5%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--accent);
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .process-step:hover .process-number {
+            background: var(--accent);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .process-step h4 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .process-step p {
+            font-size: 0.9rem;
+            color: var(--gray-light);
+            line-height: 1.6;
+        }
+
+        /* ==================== TESTIMONIALS ==================== */
+        .testimonials-wrapper {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonial-slides {
+            display: flex;
+            transition: transform 0.6s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            text-align: center;
+            padding: 0 40px;
+        }
+
+        .testimonial-quote {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--white);
+            line-height: 1.6;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .testimonial-quote::before {
+            content: '\201C';
+            font-size: 6rem;
+            color: var(--accent);
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0.3;
+            font-family: var(--font-display);
+            line-height: 1;
+        }
+
+        .testimonial-author {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-role {
+            font-size: 0.85rem;
+            color: var(--gray-light);
+            margin-top: 4px;
+        }
+
+        .testimonial-stars {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 24px;
+            letter-spacing: 4px;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gray-dark);
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .testimonial-dot.active {
+            background: var(--accent);
+            transform: scale(1.2);
+        }
+
+        /* ==================== COUNTDOWN BANNER ==================== */
+        .countdown-banner {
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .countdown-banner h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            color: var(--white);
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .countdown-banner p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 32px;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .countdown-unit {
+            text-align: center;
+        }
+
+        .countdown-value {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.7);
+            margin-top: 4px;
+        }
+
+        /* ==================== CONTACT ==================== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 24px;
+        }
+
+        .contact-info p {
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--off-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover .contact-icon {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .contact-item-text h4 {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .contact-item-text span {
+            font-size: 0.9rem;
+            color: var(--gray-light);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--off-white);
+            padding: 48px;
+            position: relative;
+        }
+
+        .contact-form h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 32px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: var(--gray);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 14px 16px;
+            border: 1px solid var(--gray-lighter);
+            background: var(--white);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: var(--transition);
+            outline: none;
+            border-radius: 0;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(179, 126, 107, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            margin-top: 24px;
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 80px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+
+        .footer-brand p {
+            color: var(--gray-light);
+            margin: 16px 0 24px;
+            line-height: 1.7;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--gray-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .footer h4 {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+            color: var(--white);
+        }
+
+        .footer ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer ul li a {
+            color: var(--gray-light);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer ul li a:hover {
+            color: var(--accent);
+            padding-left: 8px;
+        }
+
+        .footer-newsletter p {
+            color: var(--gray-light);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 14px 16px;
+            background: var(--gray-dark);
+            border: 1px solid var(--gray-dark);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            outline: none;
+            border-radius: 0;
+        }
+
+        .newsletter-form input:focus { border-color: var(--accent); }
+
+        .newsletter-form button {
+            padding: 14px 24px;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover { background: var(--accent-dark); }
+
+        .footer-bottom {
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: var(--gray-light);
+            font-size: 0.85rem;
+        }
+
+        /* ==================== FLOATERS ==================== */
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 100px;
+            right: 28px;
+            z-index: 998;
+            animation: pulse-wa 2s infinite;
+        }
+
+        .whatsapp-float a {
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: var(--transition);
+        }
+
+        .whatsapp-float a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float svg { width: 32px; height: 32px; fill: white; }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 72px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--white);
+            color: var(--black);
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; }
+
+        @keyframes pulse-wa {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Phone Float */
+        .phone-float {
+            position: fixed;
+            bottom: 170px;
+            right: 28px;
+            z-index: 998;
+        }
+
+        .phone-float a {
+            width: 52px;
+            height: 52px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(179, 126, 107, 0.4);
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .phone-float a:hover {
+            transform: scale(1.1);
+            background: var(--accent-dark);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 48px;
+            height: 48px;
+            background: var(--black);
+            color: var(--white);
+            border: 1px solid var(--gray-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 997;
+            font-size: 1.2rem;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* Social Sidebar */
+        .social-sidebar {
+            position: fixed;
+            left: 28px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 997;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .social-sidebar a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--gray-lighter);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background: var(--white);
+        }
+
+        .social-sidebar a:hover {
+            background: var(--accent);
+            color: var(--white);
+            border-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .social-sidebar::after {
+            content: '';
+            width: 1px;
+            height: 60px;
+            background: var(--gray-lighter);
+            margin: 0 auto;
+        }
+
+        /* ==================== POPUP ==================== */
+        .popup-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s;
+            backdrop-filter: blur(5px);
+        }
+
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup {
+            background: var(--white);
+            max-width: 520px;
+            width: 90%;
+            position: relative;
+            transform: scale(0.8) translateY(20px);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            overflow: hidden;
+        }
+
+        .popup-overlay.active .popup {
+            transform: scale(1) translateY(0);
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            background: var(--white);
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .popup-close:hover { background: var(--off-white); }
+
+        .popup-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-family: var(--font-display);
+            font-size: 3rem;
+        }
+
+        .popup-body {
+            padding: 36px;
+            text-align: center;
+        }
+
+        .popup-body h2 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            color: var(--black);
+        }
+
+        .popup-body p {
+            color: var(--gray);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .popup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .popup-form input {
+            padding: 14px 16px;
+            border: 1px solid var(--gray-lighter);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            outline: none;
+            border-radius: 0;
+        }
+
+        .popup-form input:focus { border-color: var(--accent); }
+
+        .popup-dismiss {
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: var(--gray-light);
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: var(--font-body);
+        }
+
+        .popup-dismiss:hover { color: var(--gray); }
+
+        /* ==================== LIGHTBOX ==================== */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s;
+        }
+
+        .lightbox.active { opacity: 1; visibility: visible; }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover { color: var(--accent); }
+
+        /* ==================== ANIMATIONS (scroll reveal) ==================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ==================== NOTIFICATION TOAST ==================== */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            background: var(--white);
+            padding: 16px 24px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 9999;
+            transform: translateX(-120%);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            max-width: 360px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .toast.visible { transform: translateX(0); }
+
+        .toast-text strong {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 2px;
+        }
+
+        .toast-text span {
+            font-size: 0.8rem;
+            color: var(--gray-light);
+        }
+
+        /* ==================== COOKIE BANNER ==================== */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--black);
+            color: var(--white);
+            padding: 20px 0;
+            z-index: 9998;
+            transform: translateY(100%);
+            transition: transform 0.5s;
+        }
+
+        .cookie-banner.visible { transform: translateY(0); }
+
+        .cookie-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .cookie-inner p {
+            font-size: 0.85rem;
+            color: var(--gray-lighter);
+        }
+
+        .cookie-accept {
+            padding: 10px 24px;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+
+        .cookie-accept:hover { background: var(--accent-dark); }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .about-grid,
+            .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-grid::before { display: none; }
+
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-item:nth-child(1) { grid-row: auto; }
+
+            .social-sidebar { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .section { padding: 80px 0; }
+            .section-header { margin-bottom: 48px; }
+
+            .nav-menu, .nav-social { display: none; }
+            .hamburger { display: flex; }
+
+            .services-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: auto; }
+
+            .contact-form { padding: 32px 24px; }
+
+            .countdown-timer { gap: 16px; }
+            .countdown-value { font-size: 2rem; }
+
+            .cursor-dot, .cursor-ring { display: none; }
+
+            .about-image img { height: 400px; }
+            .about-image::before { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; justify-content: center; }
+
+            .about-stats { grid-template-columns: 1fr; }
+
+            .gallery-grid { grid-template-columns: 1fr; }
+
+            .process-grid { grid-template-columns: 1fr; }
+
+            .newsletter-form { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Particles Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="nav-logo">
+                <img src="https://georgepantelimon.ro/wp-content/uploads/2026/03/cropped-black.png" alt="George Pantelimon Logo">
+                <span>George Pantelimon</span>
+            </a>
+            <div class="nav-menu">
+                <a href="#acasa">Acas&#259;</a>
+                <a href="#despre">Despre</a>
+                <a href="#servicii">Servicii</a>
+                <a href="#portofoliu">Portofoliu</a>
+                <a href="#testimoniale">Recenzii</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="nav-social">
+                <a href="https://www.instagram.com/georgepantelimon/" target="_blank" aria-label="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/george.pantelimon" target="_blank" aria-label="Facebook">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@georgepantelimon" target="_blank" aria-label="TikTok">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                </a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#acasa" onclick="closeMobileMenu()">Acas&#259;</a>
+        <a href="#despre" onclick="closeMobileMenu()">Despre</a>
+        <a href="#servicii" onclick="closeMobileMenu()">Servicii</a>
+        <a href="#portofoliu" onclick="closeMobileMenu()">Portofoliu</a>
+        <a href="#testimoniale" onclick="closeMobileMenu()">Recenzii</a>
+        <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="acasa">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-badge">Fotograf Profesionist &bull; Ploie&#537;ti</span>
+            <h1>Captez <em>momentele</em> care conteaz&#259;</h1>
+            <p>Fotografie &#537;i videografie profesional&#259; pentru nun&#539;i, botezuri, majorat &#537;i evenimente speciale. Fiecare cadru spune o poveste unic&#259;.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Cere Ofert&#259;</a>
+                <a href="#portofoliu" class="btn btn-outline">Vezi Portofoliu</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Fotografie Nunt&#259;</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Fotografie Botez</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Majorat</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Editare Video</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Albume Premium</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Sedinte Foto</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Evenimente Corporate</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Fotografie Nunt&#259;</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Fotografie Botez</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Majorat</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Editare Video</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Albume Premium</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Sedinte Foto</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Evenimente Corporate</span></div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="section" id="despre">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image reveal-left">
+                    <img src="https://georgepantelimon.ro/wp-content/uploads/2025/10/Imagen-de-WhatsApp-2025-10-07-a-las-18.29.26_889f6bc8-1.jpg" alt="George Pantelimon - Fotograf Profesionist">
+                </div>
+                <div class="about-text reveal-right">
+                    <span class="section-tag">Despre Mine</span>
+                    <h3>George Pantelimon</h3>
+                    <p>Sunt fotograf profesionist din Ploie&#537;ti, jude&#539;ul Prahova, cu o pasiune profund&#259; pentru captarea momentelor autentice. Fiecare eveniment este o poveste unic&#259;, iar misiunea mea este s&#259; o spun prin imagini care r&#259;m&#226;n &#238;n suflet.</p>
+                    <p>Specializat &#238;n fotografie de nunt&#259;, botez &#537;i majorat, ofer servicii complete de foto &#537;i video, de la &#537;edin&#539;ele foto p&#226;n&#259; la albumele premium tip&#259;rite. Cu echipament profesional &#537;i un ochi artistic, transform fiecare cadru &#238;ntr-o oper&#259; de art&#259;.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="500">0</span>
+                            <span class="stat-label">Evenimente</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="8">0</span>
+                            <span class="stat-label">Ani Experien&#539;&#259;</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="100">0</span>
+                            <span class="stat-label">Clien&#539;i Ferici&#539;i %</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section section-dark" id="servicii">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Serviciile Mele</span>
+                <h2 class="section-title">Tot ce ai nevoie pentru<br>evenimentul t&#259;u perfect</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal" style="transition-delay: 0.1s">
+                    <span class="service-number">01</span>
+                    <span class="service-icon">&#128248;</span>
+                    <h3>Fotografie Nunt&#259;</h3>
+                    <p>Surprind fiecare moment magic al nun&#539;ii tale - de la preg&#259;tiri &#537;i ceremonie, p&#226;n&#259; la petrecere &#537;i dans. Fotografii naturale, pline de emo&#539;ie.</p>
+                    <a href="#contact" class="card-link">Cere Ofert&#259;</a>
+                </div>
+                <div class="service-card reveal" style="transition-delay: 0.2s">
+                    <span class="service-number">02</span>
+                    <span class="service-icon">&#128118;</span>
+                    <h3>Fotografie Botez</h3>
+                    <p>Momentele cele mai frumoase din via&#539;a micului t&#259;u &#238;nger, capturate cu grij&#259; &#537;i dragoste. Amintiri pe care le vei p&#259;stra o via&#539;&#259;.</p>
+                    <a href="#contact" class="card-link">Cere Ofert&#259;</a>
+                </div>
+                <div class="service-card reveal" style="transition-delay: 0.3s">
+                    <span class="service-number">03</span>
+                    <span class="service-icon">&#127881;</span>
+                    <h3>Majorat</h3>
+                    <p>Primul mare eveniment din via&#539;a ta merit&#259; s&#259; fie imortalizat cu stil. Fotografii vibrante &#537;i pline de energie pentru o noapte de neuitat.</p>
+                    <a href="#contact" class="card-link">Cere Ofert&#259;</a>
+                </div>
+                <div class="service-card reveal" style="transition-delay: 0.4s">
+                    <span class="service-number">04</span>
+                    <span class="service-icon">&#127909;</span>
+                    <h3>Editare Video</h3>
+                    <p>Transform&#259;m filmarea evenimentului t&#259;u &#238;ntr-un film cinematografic profesional, cu tranzi&#539;ii fluide, muzic&#259; potrivit&#259; &#537;i color grading premium.</p>
+                    <a href="#contact" class="card-link">Cere Ofert&#259;</a>
+                </div>
+                <div class="service-card reveal" style="transition-delay: 0.5s">
+                    <span class="service-number">05</span>
+                    <span class="service-icon">&#128214;</span>
+                    <h3>Albume Premium</h3>
+                    <p>Albume foto tip&#259;rite pe h&#226;rtie premium, cu coperte personalizate. Amintirile tale &#238;ntr-o form&#259; tangibil&#259;, elegant&#259; &#537;i durabil&#259;.</p>
+                    <a href="#contact" class="card-link">Cere Ofert&#259;</a>
+                </div>
+                <div class="service-card reveal" style="transition-delay: 0.6s">
+                    <span class="service-number">06</span>
+                    <span class="service-icon">&#128247;</span>
+                    <h3>&#536;edin&#539;e Foto</h3>
+                    <p>&#536;edin&#539;e foto &#238;n studio sau outdoor - portrete, cuplu, familie, sau maternitate. Fotografii profesionale care te reprezint&#259;.</p>
+                    <a href="#contact" class="card-link">Cere Ofert&#259;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Cum Func&#539;ioneaz&#259;</span>
+                <h2 class="section-title">De la idee la amintiri perfecte</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="process-grid">
+                <div class="process-step reveal" style="transition-delay: 0.1s">
+                    <div class="process-number">1</div>
+                    <h4>Contacteaz&#259;-m&#259;</h4>
+                    <p>Trimite-mi un mesaj cu detaliile evenimentului t&#259;u &#537;i r&#259;spund &#238;n maximum 2 ore.</p>
+                </div>
+                <div class="process-step reveal" style="transition-delay: 0.2s">
+                    <div class="process-number">2</div>
+                    <h4>Planific&#259;m</h4>
+                    <p>Ne &#238;nt&#226;lnim s&#259; discut&#259;m detaliile, stilul dorit &#537;i s&#259; cre&#259;m planul perfect.</p>
+                </div>
+                <div class="process-step reveal" style="transition-delay: 0.3s">
+                    <div class="process-number">3</div>
+                    <h4>Captez Momentele</h4>
+                    <p>&#206;n ziua evenimentului, m&#259; ocup de tot - tu te bucuri, eu imortalizez.</p>
+                </div>
+                <div class="process-step reveal" style="transition-delay: 0.4s">
+                    <div class="process-number">4</div>
+                    <h4>Livrez Amintirile</h4>
+                    <p>Primesti fotografiile editate profesional &#537;i albumul premium &#238;n 2-3 s&#259;pt&#259;m&#226;ni.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section" id="portofoliu">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Portofoliu</span>
+                <h2 class="section-title">Momente captate cu pasiune</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Fotografie Nunta" loading="lazy">
+                    <div class="gallery-overlay"><span>Nunt&#259;</span></div>
+                </div>
+                <div class="gallery-item reveal" style="transition-delay: 0.1s">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80" alt="Fotografie Nunta 2" loading="lazy">
+                    <div class="gallery-overlay"><span>Ceremonie</span></div>
+                </div>
+                <div class="gallery-item reveal" style="transition-delay: 0.2s">
+                    <img src="https://images.unsplash.com/photo-1606216794079-73f85bbd57d5?w=600&q=80" alt="Fotografie Botez" loading="lazy">
+                    <div class="gallery-overlay"><span>Botez</span></div>
+                </div>
+                <div class="gallery-item reveal" style="transition-delay: 0.3s">
+                    <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&q=80" alt="Fotografie Cuplu" loading="lazy">
+                    <div class="gallery-overlay"><span>Cuplu</span></div>
+                </div>
+                <div class="gallery-item reveal" style="transition-delay: 0.4s">
+                    <img src="https://images.unsplash.com/photo-1460978812857-470ed1c77af0?w=600&q=80" alt="Editare Video" loading="lazy">
+                    <div class="gallery-overlay"><span>Video</span></div>
+                </div>
+                <div class="gallery-item reveal" style="transition-delay: 0.5s">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&q=80" alt="Album Premium" loading="lazy">
+                    <div class="gallery-overlay"><span>Album</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown / Promo Banner -->
+    <section class="countdown-banner">
+        <div class="container">
+            <h2>Ofert&#259; Special&#259; Toamn&#259; 2026</h2>
+            <p>Rezerv&#259; acum pachetul de nunt&#259; &#537;i prime&#537;ti 20% reducere + album foto cadou!</p>
+            <div class="countdown-timer" id="countdown">
+                <div class="countdown-unit">
+                    <span class="countdown-value" id="days">00</span>
+                    <span class="countdown-label">Zile</span>
+                </div>
+                <div class="countdown-unit">
+                    <span class="countdown-value" id="hours">00</span>
+                    <span class="countdown-label">Ore</span>
+                </div>
+                <div class="countdown-unit">
+                    <span class="countdown-value" id="minutes">00</span>
+                    <span class="countdown-label">Minute</span>
+                </div>
+                <div class="countdown-unit">
+                    <span class="countdown-value" id="seconds">00</span>
+                    <span class="countdown-label">Secunde</span>
+                </div>
+            </div>
+            <a href="#contact" class="btn btn-dark">Rezerv&#259; Acum</a>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section section-dark" id="testimoniale">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Recenzii</span>
+                <h2 class="section-title">Ce spun clien&#539;ii mei</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="testimonials-wrapper reveal">
+                <div class="testimonial-slides" id="testimonialSlides">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="testimonial-quote">George a fost incredibil la nunta noastr&#259;! A surprins fiecare moment special cu un talent artistic deosebit. Fotografiile sunt superbe, naturale &#537;i pline de emo&#539;ie. &#206;l recomand&#259;m cu toat&#259; inima!</p>
+                        <div class="testimonial-author">Ana &#537;i Mihai</div>
+                        <div class="testimonial-role">Nunt&#259; &#238;n Ploie&#537;ti</div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="testimonial-quote">Am ales pe George pentru botezul fiicei noastre &#537;i nu am regretat nici o secund&#259;. Foarte profesionist, punctual &#537;i cu un ochi extraordinar pentru detalii. Albumul a ie&#537;it superb!</p>
+                        <div class="testimonial-author">Elena &#537;i Andrei</div>
+                        <div class="testimonial-role">Botez &#238;n Bucure&#537;ti</div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="testimonial-quote">Majoratul fiicei mele a fost perfect documentat de George. Fotografiile sunt WOW, iar videoclipul m-a f&#259;cut s&#259; pl&#226;ng de fericire. Un profesionist adev&#259;rat!</p>
+                        <div class="testimonial-author">Maria D.</div>
+                        <div class="testimonial-role">Majorat &#238;n Prahova</div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="testimonial-quote">Colabor&#259;m cu George de ani de zile pentru evenimentele noastre corporate. Calitate excep&#539;ional&#259;, livrare rapid&#259; &#537;i pre&#539;uri corecte. Partenerul ideal!</p>
+                        <div class="testimonial-author">Adrian P.</div>
+                        <div class="testimonial-role">Manager Evenimente</div>
+                    </div>
+                </div>
+                <div class="testimonial-nav" id="testimonialNav">
+                    <button class="testimonial-dot active" data-index="0" aria-label="Testimonial 1"></button>
+                    <button class="testimonial-dot" data-index="1" aria-label="Testimonial 2"></button>
+                    <button class="testimonial-dot" data-index="2" aria-label="Testimonial 3"></button>
+                    <button class="testimonial-dot" data-index="3" aria-label="Testimonial 4"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Contact</span>
+                <h2 class="section-title">Hai s&#259; cre&#259;m amintiri &#238;mpreun&#259;</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal-left">
+                    <h3>George Pantelimon</h3>
+                    <p>Sunt disponibil pentru evenimente &#238;n Ploie&#537;ti, Bucure&#537;ti &#537;i &#238;n toat&#259; &#539;ara. Contacteaz&#259;-m&#259; pentru o ofert&#259; personalizat&#259; - r&#259;spund &#238;n maximum 2 ore!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">&#128205;</div>
+                            <div class="contact-item-text">
+                                <h4>Loca&#539;ie</h4>
+                                <span>Ploie&#537;ti, Prahova, Rom&#226;nia</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">&#128231;</div>
+                            <div class="contact-item-text">
+                                <h4>Email</h4>
+                                <span>contact@georgepantelimon.ro</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">&#128241;</div>
+                            <div class="contact-item-text">
+                                <h4>Telefon</h4>
+                                <span>+40 7XX XXX XXX</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">&#128337;</div>
+                            <div class="contact-item-text">
+                                <h4>Program</h4>
+                                <span>Luni - Duminic&#259;, 09:00 - 21:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form reveal-right">
+                    <h3>Trimite un Mesaj</h3>
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="name">Nume Complet *</label>
+                                <input type="text" id="name" name="name" required placeholder="Ion Popescu">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefon *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="07XX XXX XXX">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="email@exemplu.ro">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Serviciu Dorit</label>
+                                <select id="service" name="service">
+                                    <option value="">Alege serviciul...</option>
+                                    <option value="nunta">Fotografie Nunt&#259;</option>
+                                    <option value="botez">Fotografie Botez</option>
+                                    <option value="majorat">Majorat</option>
+                                    <option value="video">Editare Video</option>
+                                    <option value="album">Album Premium</option>
+                                    <option value="sedinta">&#536;edin&#539;&#259; Foto</option>
+                                    <option value="altele">Altele</option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="date">Data Evenimentului</label>
+                                <input type="date" id="date" name="date">
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="message">Mesaj</label>
+                                <textarea id="message" name="message" placeholder="Spune-mi mai multe despre evenimentul t&#259;u..."></textarea>
+                            </div>
+                        </div>
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Trimite Mesajul</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo" style="margin-bottom:8px">
+                        <img src="https://georgepantelimon.ro/wp-content/uploads/2026/03/cropped-black.png" alt="George Pantelimon Logo" style="filter:invert(1); height:40px;">
+                        <span style="color:#fff; font-family:var(--font-display); font-size:1.1rem;">George Pantelimon</span>
+                    </a>
+                    <p>Fotograf profesionist din Ploie&#537;ti. Servicii foto &#537;i video premium pentru cele mai importante momente din via&#539;a ta.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/georgepantelimon/" target="_blank" aria-label="Instagram">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/george.pantelimon" target="_blank" aria-label="Facebook">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@georgepantelimon" target="_blank" aria-label="TikTok">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Servicii</h4>
+                    <ul>
+                        <li><a href="#servicii">Fotografie Nunt&#259;</a></li>
+                        <li><a href="#servicii">Fotografie Botez</a></li>
+                        <li><a href="#servicii">Majorat</a></li>
+                        <li><a href="#servicii">Editare Video</a></li>
+                        <li><a href="#servicii">Albume Premium</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Link-uri</h4>
+                    <ul>
+                        <li><a href="#acasa">Acas&#259;</a></li>
+                        <li><a href="#despre">Despre Mine</a></li>
+                        <li><a href="#portofoliu">Portofoliu</a></li>
+                        <li><a href="#testimoniale">Recenzii</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Aboneaz&#259;-te pentru oferte speciale &#537;i nout&#259;&#539;i din lumea fotografiei.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; showToast('Mul&#539;umim!', 'Te-ai abonat cu succes la newsletter.');">
+                        <input type="email" placeholder="Email-ul t&#259;u..." required>
+                        <button type="submit">Abonare</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 George Pantelimon. Toate drepturile rezervate.</p>
+                <p>Creat cu pasiune &#238;n Ploie&#537;ti</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== FLOATERS ==================== -->
+
+    <!-- WhatsApp Float -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/40700000000?text=Bun%C4%83!%20A%C8%99%20dori%20o%20ofert%C4%83%20pentru%20servicii%20foto." target="_blank" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <div class="whatsapp-tooltip">Scrie-mi pe WhatsApp!</div>
+    </div>
+
+    <!-- Phone Float -->
+    <div class="phone-float">
+        <a href="tel:+40700000000" aria-label="Sun&#259;">&#128222;</a>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="&#206;napoi sus">&#8593;</button>
+
+    <!-- Social Sidebar -->
+    <div class="social-sidebar">
+        <a href="https://www.instagram.com/georgepantelimon/" target="_blank" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/george.pantelimon" target="_blank" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@georgepantelimon" target="_blank" aria-label="TikTok">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+    </div>
+
+    <!-- ==================== POPUP OFERTA ==================== -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup">
+            <button class="popup-close" id="popupClose">&times;</button>
+            <div class="popup-image">&#128248; -20%</div>
+            <div class="popup-body">
+                <h2>Ofert&#259; Exclusiv&#259;!</h2>
+                <p>Prime&#537;te <strong>20% reducere</strong> la primul t&#259;u pachet foto. Las&#259;-ne datele tale &#537;i te contact&#259;m cu oferta personalizat&#259;!</p>
+                <form class="popup-form" onsubmit="event.preventDefault(); closePopup(); showToast('Mul&#539;umim!', 'Te vom contacta &#238;n cur&#226;nd cu oferta.');">
+                    <input type="text" placeholder="Numele t&#259;u" required>
+                    <input type="tel" placeholder="Num&#259;rul de telefon" required>
+                    <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Vreau Reducerea!</button>
+                </form>
+                <button class="popup-dismiss" onclick="closePopup()">Nu, mul&#539;umesc</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <img src="" alt="Preview" id="lightboxImage">
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-text">
+            <strong id="toastTitle"></strong>
+            <span id="toastMessage"></span>
+        </div>
+    </div>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="container">
+            <div class="cookie-inner">
+                <p>Acest site folose&#537;te cookie-uri pentru a-&#539;i oferi cea mai bun&#259; experien&#539;&#259;. Continu&#226;nd navigarea, e&#537;ti de acord cu utilizarea lor.</p>
+                <button class="cookie-accept" onclick="acceptCookies()">Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // ===== Preloader =====
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 800);
+        });
+
+        // ===== Custom Cursor =====
+        const cursorDot = document.getElementById('cursorDot');
+        const cursorRing = document.getElementById('cursorRing');
+
+        if (window.innerWidth > 768) {
+            document.addEventListener('mousemove', (e) => {
+                cursorDot.style.left = e.clientX - 4 + 'px';
+                cursorDot.style.top = e.clientY - 4 + 'px';
+                cursorRing.style.left = e.clientX + 'px';
+                cursorRing.style.top = e.clientY + 'px';
+            });
+
+            document.querySelectorAll('a, button, .service-card, .gallery-item').forEach(el => {
+                el.addEventListener('mouseenter', () => cursorRing.classList.add('hover'));
+                el.addEventListener('mouseleave', () => cursorRing.classList.remove('hover'));
+            });
+        }
+
+        // ===== Particles =====
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.speedY = (Math.random() - 0.5) * 0.5;
+                this.opacity = Math.random() * 0.5 + 0.1;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                    this.reset();
+                }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(179, 126, 107, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 50; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // ===== Navbar Scroll =====
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            navbar.classList.toggle('scrolled', scrollY > 80);
+            backToTop.classList.toggle('visible', scrollY > 500);
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== Mobile Menu =====
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        function closeMobileMenu() {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // ===== Scroll Reveal =====
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ===== Counter Animation =====
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.dataset.count);
+                    let current = 0;
+                    const increment = target / 60;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        entry.target.textContent = Math.floor(current) + (entry.target.dataset.count === '100' ? '%' : '+');
+                    }, 25);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statNumbers.forEach(el => counterObserver.observe(el));
+
+        // ===== Testimonials Slider =====
+        const slides = document.getElementById('testimonialSlides');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function goToSlide(index) {
+            currentSlide = index;
+            slides.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach(d => d.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                goToSlide(parseInt(dot.dataset.index));
+                resetSlideInterval();
+            });
+        });
+
+        function nextSlide() {
+            goToSlide((currentSlide + 1) % dots.length);
+        }
+
+        function resetSlideInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+        resetSlideInterval();
+
+        // ===== Countdown Timer =====
+        function updateCountdown() {
+            const target = new Date('2026-11-30T23:59:59');
+            const now = new Date();
+            const diff = target - now;
+
+            if (diff <= 0) return;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ===== Gallery Lightbox =====
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                lightboxImage.src = item.querySelector('img').src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // ===== Popup =====
+        function showPopup() {
+            if (sessionStorage.getItem('popupClosed')) return;
+            document.getElementById('popupOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePopup() {
+            document.getElementById('popupOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+            sessionStorage.setItem('popupClosed', 'true');
+        }
+
+        document.getElementById('popupClose').addEventListener('click', closePopup);
+        document.getElementById('popupOverlay').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('popupOverlay')) closePopup();
+        });
+
+        // Show popup after 8 seconds
+        setTimeout(showPopup, 8000);
+
+        // Also show on exit intent (mouse leaves viewport top)
+        document.addEventListener('mouseout', (e) => {
+            if (e.clientY < 5 && !sessionStorage.getItem('popupClosed')) {
+                showPopup();
+            }
+        });
+
+        // ===== Toast Notification =====
+        function showToast(title, message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastTitle').textContent = title;
+            document.getElementById('toastMessage').textContent = message;
+            toast.classList.add('visible');
+            setTimeout(() => toast.classList.remove('visible'), 4000);
+        }
+
+        // Social proof toast - show random booking notifications
+        const socialProofMessages = [
+            { title: 'Rezervare nou\u0103!', msg: 'Ana din Bucure\u0219ti a rezervat pachetul de nunt\u0103.' },
+            { title: 'Cerere ofert\u0103', msg: 'Mihai din Ploie\u0219ti a cerut o ofert\u0103 pentru botez.' },
+            { title: 'Recenzie nou\u0103 \u2605\u2605\u2605\u2605\u2605', msg: '"Fotografii superbe!" - Elena' },
+            { title: 'Album livrat!', msg: 'Albumul premium pentru nunta Andrei & Maria este gata.' }
+        ];
+
+        let toastIndex = 0;
+        function showSocialProof() {
+            if (document.getElementById('popupOverlay').classList.contains('active')) return;
+            const sp = socialProofMessages[toastIndex % socialProofMessages.length];
+            showToast(sp.title, sp.msg);
+            toastIndex++;
+        }
+
+        // Show first social proof after 15 seconds, then every 45 seconds
+        setTimeout(() => {
+            showSocialProof();
+            setInterval(showSocialProof, 45000);
+        }, 15000);
+
+        // ===== Contact Form =====
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const name = form.querySelector('#name').value;
+            showToast('Mesaj trimis!', `Mul\u021bumim ${name}! Te vom contacta \u00een cur\u00e2nd.`);
+            form.reset();
+        }
+
+        // ===== Cookie Banner =====
+        function acceptCookies() {
+            document.getElementById('cookieBanner').classList.remove('visible');
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        if (!localStorage.getItem('cookiesAccepted')) {
+            setTimeout(() => {
+                document.getElementById('cookieBanner').classList.add('visible');
+            }, 2000);
+        }
+
+        // ===== Parallax on Hero =====
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.hero-bg');
+            const scrollY = window.scrollY;
+            if (scrollY < window.innerHeight) {
+                hero.style.transform = `scale(1.1) translateY(${scrollY * 0.3}px)`;
+            }
+        });
+
+        // ===== Smooth anchor scrolling =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ===== Keyboard shortcuts =====
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+                closePopup();
+                closeMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>
