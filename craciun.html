@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotografii de Cr&#259;ciun | George Pantelimon &#8212; Fotograf Ploie&#537;ti</title>
+    <meta name="description" content="&#536;edin&#539;e foto de Cr&#259;ciun &#238;n Ploie&#537;ti. Fotografii tematice de s&#259;rb&#259;tori, atmosfer&#259; magic&#259; &#537;i amintiri de p&#259;strat. George Pantelimon, fotograf profesionist.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="George Pantelimon">
+    <meta property="og:title" content="Fotografii de Cr&#259;ciun | George Pantelimon">
+    <meta property="og:description" content="&#536;edin&#539;e foto de Cr&#259;ciun &#238;n Ploie&#537;ti &#8212; atmosfer&#259; magic&#259;, lumini calde &#537;i amintiri de p&#259;strat.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://georgepantelimon.ro/craciun.html">
+    <meta property="og:locale" content="ro_RO">
+    <link rel="canonical" href="https://georgepantelimon.ro/craciun.html">
+    <link rel="icon" type="image/png" href="images/brand/logo-gp.png">
+    <link rel="apple-touch-icon" href="images/brand/logo-gp.png">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/playfair-display-400-latin.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/questrial-400-latin.woff2">
+    <style>
+@font-face {
+    font-family: 'Montserrat'; font-style: normal; font-weight: 300; font-display: swap;
+    src: url(fonts/montserrat-300-latin.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Montserrat'; font-style: normal; font-weight: 400; font-display: swap;
+    src: url(fonts/montserrat-400-latin.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Montserrat'; font-style: normal; font-weight: 600; font-display: swap;
+    src: url(fonts/montserrat-600-latin.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Playfair Display'; font-style: normal; font-weight: 400; font-display: swap;
+    src: url(fonts/playfair-display-400-latin.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Questrial'; font-style: normal; font-weight: 400; font-display: swap;
+    src: url(fonts/questrial-400-latin.woff2) format('woff2');
+}
+
+:root {
+    --black: #0a0a0a;
+    --dark: #1a1a1a;
+    --gray: #888;
+    --gray-light: #999;
+    --gray-lighter: #ccc;
+    --off-white: #f5f2ef;
+    --white: #ffffff;
+    --accent: #b37e6b;
+    --accent-dark: #a76d58;
+    --accent-light: #c99a89;
+    --gold: #d4a574;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Questrial', sans-serif;
+    --transition: 0.3s ease;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    color: var(--white);
+    background: var(--black);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* Navbar */
+.navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(10,10,10,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 16px 0; transition: var(--transition);
+}
+.navbar .container { display: flex; align-items: center; justify-content: space-between; }
+.nav-logo img { height: 44px; width: auto; }
+.nav-name {
+    font-family: var(--font-display); font-size: 1.15rem;
+    color: var(--white); letter-spacing: 1px; margin-left: 14px;
+}
+.nav-back {
+    font-family: var(--font-heading); font-size: 0.75rem;
+    text-transform: uppercase; letter-spacing: 2px;
+    color: var(--accent-light); transition: var(--transition);
+}
+.nav-back:hover { color: var(--white); }
+
+/* Hero */
+.page-hero {
+    position: relative; height: 55vh; min-height: 340px;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; overflow: hidden;
+    margin-top: 76px;
+}
+.page-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.7) 100%);
+    z-index: 1;
+}
+.page-hero img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+}
+.page-hero-content { position: relative; z-index: 2; }
+.page-hero-tag {
+    font-family: var(--font-heading); font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 4px;
+    color: var(--accent-light); margin-bottom: 16px; display: block;
+}
+.page-hero-title {
+    font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--white); font-weight: 400; line-height: 1.2;
+}
+.page-hero-sub {
+    font-size: 1rem; color: var(--gray-lighter);
+    margin-top: 14px; max-width: 500px;
+}
+
+/* Galleries Section */
+.galleries-section { padding: 80px 0 100px; }
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-tag {
+    font-family: var(--font-heading); font-size: 0.65rem;
+    text-transform: uppercase; letter-spacing: 4px;
+    color: var(--accent); display: block; margin-bottom: 12px;
+}
+.section-title {
+    font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 400; color: var(--white); line-height: 1.2;
+}
+.section-line {
+    width: 60px; height: 1px; background: var(--accent);
+    margin: 20px auto 0;
+}
+
+.gallery-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.gallery-card {
+    position: relative; display: block; overflow: hidden;
+    aspect-ratio: 3/4; background: var(--dark);
+    border-radius: 4px; cursor: pointer;
+}
+.gallery-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+    filter: grayscale(0.15);
+}
+.gallery-card:hover img { transform: scale(1.06); filter: grayscale(0); }
+.gallery-card-overlay {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 24px;
+    background: linear-gradient(to top, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.15) 50%, transparent 72%);
+    transition: var(--transition);
+}
+.gallery-card:hover .gallery-card-overlay {
+    background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.3) 55%, rgba(10,10,10,0.05) 100%);
+}
+.gallery-card-name {
+    font-family: var(--font-display); font-size: 1.4rem;
+    color: var(--white); letter-spacing: 1px;
+}
+.gallery-card-cta {
+    font-family: var(--font-heading); font-size: 0.6rem;
+    text-transform: uppercase; letter-spacing: 3px;
+    color: var(--accent-light); margin-top: 6px;
+    opacity: 0; transform: translateY(6px); transition: var(--transition);
+}
+.gallery-card:hover .gallery-card-cta { opacity: 1; transform: none; }
+
+/* CTA */
+.cta-section {
+    padding: 60px 0 80px; text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+.cta-section p {
+    font-size: 1.05rem; color: var(--gray-lighter);
+    max-width: 500px; margin: 0 auto 28px;
+}
+.btn-primary {
+    display: inline-block; padding: 14px 36px;
+    background: var(--accent); color: var(--white);
+    font-family: var(--font-heading); font-size: 0.75rem;
+    text-transform: uppercase; letter-spacing: 2px;
+    border: none; cursor: pointer; transition: var(--transition);
+}
+.btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); }
+
+/* Footer */
+.footer {
+    background: var(--dark); padding: 40px 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+}
+.footer p { font-size: 0.85rem; color: var(--gray); }
+.footer a { color: var(--accent-light); transition: var(--transition); }
+.footer a:hover { color: var(--white); }
+
+/* WhatsApp */
+.whatsapp-float {
+    position: fixed; bottom: 24px; right: 24px; z-index: 999;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #25d366; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: var(--transition);
+}
+.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.6); }
+.whatsapp-float svg { width: 28px; height: 28px; fill: white; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
+    .page-hero { height: 40vh; min-height: 280px; }
+    .galleries-section { padding: 50px 0 60px; }
+}
+@media (max-width: 520px) {
+    .gallery-card-name { font-size: 1.1rem; }
+    .gallery-card-cta { opacity: 1; transform: none; }
+}
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="container">
+        <div style="display:flex;align-items:center;">
+            <a href="index.html" class="nav-logo" aria-label="George Pantelimon &#8212; acas&#259;">
+                <img src="images/brand/logo-gp.png" alt="George Pantelimon Logo" width="128" height="128">
+            </a>
+            <a href="index.html" class="nav-name">George Pantelimon</a>
+        </div>
+        <a href="index.html" class="nav-back">&#8592; &#206;napoi pe site</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="page-hero">
+    <img src="images/craciun/craciun-cover.jpg" alt="&#536;edin&#539;&#259; foto de Cr&#259;ciun &#8212; George Pantelimon, fotograf Ploie&#537;ti" width="1600" height="1067" loading="eager">
+    <div class="page-hero-content">
+        <span class="page-hero-tag">Portofoliu</span>
+        <h1 class="page-hero-title">Cr&#259;ciun</h1>
+        <p class="page-hero-sub">&#536;edin&#539;e foto tematice de s&#259;rb&#259;tori &#8212; lumin&#259; cald&#259;, emo&#539;ii reale &#537;i amintiri de p&#259;strat.</p>
+    </div>
+</section>
+
+<!-- Galleries -->
+<section class="galleries-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Galerii</span>
+            <h2 class="section-title">Alege galeria</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="gallery-grid">
+            <a class="gallery-card" href="https://georgepantelimon.wfolio.pro/disk/bucurie-39jhh4" target="_blank" rel="noopener noreferrer">
+                <img src="images/craciun/craciun-cover.jpg" alt="Galerie foto Cr&#259;ciun &#8212; Bucurie" width="760" height="1013" loading="lazy" decoding="async">
+                <span class="gallery-card-overlay">
+                    <span class="gallery-card-name">Bucurie</span>
+                    <span class="gallery-card-cta">Vezi galeria &#8594;</span>
+                </span>
+            </a>
+            <a class="gallery-card" href="https://georgepantelimon.wfolio.pro/disk/red-d2kxgb" target="_blank" rel="noopener noreferrer">
+                <img src="images/craciun/craciun-cover.jpg" alt="Galerie foto Cr&#259;ciun &#8212; Red" width="760" height="1013" loading="lazy" decoding="async">
+                <span class="gallery-card-overlay">
+                    <span class="gallery-card-name">Red</span>
+                    <span class="gallery-card-cta">Vezi galeria &#8594;</span>
+                </span>
+            </a>
+            <a class="gallery-card" href="https://georgepantelimon.wfolio.pro/disk/noah-slb7fb" target="_blank" rel="noopener noreferrer">
+                <img src="images/craciun/craciun-cover.jpg" alt="Galerie foto Cr&#259;ciun &#8212; Noah" width="760" height="1013" loading="lazy" decoding="async">
+                <span class="gallery-card-overlay">
+                    <span class="gallery-card-name">Noah</span>
+                    <span class="gallery-card-cta">Vezi galeria &#8594;</span>
+                </span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <p>&#206;&#539;i dore&#537;ti o &#537;edin&#539;&#259; foto de Cr&#259;ciun?</p>
+        <a href="index.html#contact" class="btn-primary">Contacteaz&#259;-m&#259;</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2026 George Pantelimon Photography &mdash; <a href="index.html">georgepantelimon.ro</a></p>
+    </div>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/40767366800" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Scrie-mi pe WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+</body>
+</html>
